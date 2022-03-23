@@ -1,2 +1,2 @@
-# MINOR-2---Image-Caption-Generator
+# MINOR-2 - Image-Caption-Generator
 Image Caption Generator
