@@ -17,7 +17,7 @@ Each line in the Captions file represents one caption. It contains two columns s
     “<image file>#i <caption>”, where 0≤i≤4 for each of the 5 captions.
     eg. “1000268201_693b08cb0e.jpg#1 A girl going into a wooden building .”**
     
-Training data pipeline
+**Training data pipeline**
 We will build the pipeline for our deep learning architecture in two phases.
 
 For the first phase, we use transfer learning to pre-process the raw images with a pre-trained CNN-based network. This takes the images as input and produces the encoded image vectors that capture the essential features of the image. We do not need to train this network further.
@@ -32,11 +32,12 @@ For the Image Caption model, the training data consists of:
 The features (X) are the encoded feature vectors
 The target labels (y) are the captions
 
-Pre-process Images
+**Pre-process Images**
 We will use a pre-trained Inception model which is a well-known Image Classification model with excellent performance. This model consists of two sections:
 
 The first section consists of a sequence of CNN layers that progressively extract the relevant features from the image to produce a compact feature map representation.
 The second section is the Classifier that consists of a sequence of Linear layers. It takes the image feature map and predicts a class (eg. dog, car, house, etc) to which the feature belongs.
+  
 **For our Image Caption model, we need only the image feature maps, and do not need the Classifier.**
     
 To prepare the training data in this format, we will use the following steps:
@@ -46,14 +47,28 @@ To prepare the training data in this format, we will use the following steps:
     Prepare the Training Data using the Pre-processed Images and Captions
     
     
-Prepare Captions
+**Prepare Captions**
 Each caption consists of an English sentence. To prepare this for training, we perform the following steps on each sentence:
 
-Clean it by converting all words to lower case and removing punctuation, words with numbers and short words with a single character.
+**Clean** it by converting all words to lower case and removing punctuation, words with numbers and short words with a single character.
 
-Add ‘<startseq>’ and ‘<endseq>’ tokens at the beginning and end of the sentence.
+**Add** ‘<startseq>’ and ‘<endseq>’ tokens at the beginning and end of the sentence.
     
-Tokenize the sentence by mapping each word to a numeric word ID. It does this by building a vocabulary of all the words that occur in the set of captions.
+**Tokenize** the sentence by mapping each word to a numeric word ID. It does this by building a vocabulary of all the words that occur in the set of captions.
 
-Extend each sentence to the same length by appending padding tokens. This is needed because the model expects every data sample to have the same fixed length.
+**Extend** each sentence to the same length by appending padding tokens. This is needed because the model expects every data sample to have the same fixed length.
     
+  
+**Image Caption Model with Attention**
+The model consists of four logical components:
+
+**Encoder**: since the image encoding has already been done by the pre-trained Inception model, the Encoder here is very simple. It consists of a Linear layer that takes the pre-encoded image features and passes them on to the Decoder.
+  
+**Sequence Decoder**: this is a recurrent network built with GRUs. The captions are passed in as the input after first going through an Embedding layer.
+  
+**Attention**: as the Decoder generates each word of the output sequence, the Attention module helps it to focus on the most relevant part of the image for generating that word.
+  
+**Sentence Generator**: this module consists of a couple of Linear layers. It takes the output from the Decoder and produces a probability for each word from the vocabulary, for each position in the predicted sequence.
+
+  
+  
