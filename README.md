@@ -71,4 +71,7 @@ The model consists of four logical components:
 **Sentence Generator**: this module consists of a couple of Linear layers. It takes the output from the Decoder and produces a probability for each word from the vocabulary, for each position in the predicted sequence.
 
   
-  
+NAME: NIHARIKA AGRAWAL, PRABHRAJ SINGH, PRADUMN NATHAWAT
+BRANCH: B.Tech CSE AI&ML
+SAPID: 500075307
+BATCH: 4
