@@ -7,11 +7,11 @@ For our demo, we will use the Flickr8K dataset (images, text). This is a reasona
 
 After downloading this to a ‘dataset’ folder, we see that it consists of three parts:
 
-    **Image** files in the ‘Flicker8k_Dataset’ folder: This folder contains roughly 8000 .jpg files eg. ‘1000268201_693b08cb0e.jpg’
+   **Image** files in the ‘Flicker8k_Dataset’ folder: This folder contains roughly 8000 .jpg files eg. ‘1000268201_693b08cb0e.jpg’
     
-    **Captions** in the ‘Flickr8k.token.txt’ file in the main folder: It contains captions for all the images. Because the same image can be described in many different ways, there are 5 captions per image.
+   **Captions** in the ‘Flickr8k.token.txt’ file in the main folder: It contains captions for all the images. Because the same image can be described in many different ways, there are 5 captions per image.
 
-    **List of Training, Validation, and Test Images**   in a set of .txt files in the main folder: ‘Flickr_8k.trainImages.txt’ contains the list of image file names to be used for training. Similarly, there are files for validation and test.
+   **List of Training, Validation, and Test Images**   in a set of .txt files in the main folder: ‘Flickr_8k.trainImages.txt’ contains the list of image file names to be used for training. Similarly, there are files for validation and test.
 
 Each line in the Captions file represents one caption. It contains two columns separated by a Tab. The format of each line is:
     “<image file>#i <caption>”, where 0≤i≤4 for each of the 5 captions.
