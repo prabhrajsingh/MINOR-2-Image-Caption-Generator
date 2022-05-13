@@ -72,6 +72,9 @@ The model consists of four logical components:
 
   
 NAME: NIHARIKA AGRAWAL, PRABHRAJ SINGH, PRADUMN NATHAWAT
+  
 BRANCH: B.Tech CSE AI&ML
+  
 SAPID: 500075359, 500076519, 500075307
+  
 BATCH: 4
